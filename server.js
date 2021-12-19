@@ -16,7 +16,7 @@ app.use(express.json({ extended: false }))
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api', fileRoutes.routes);
 
-//SERVE STATIC ASSETS IN PRODUCTION
+//SERVE STATIC ASSETS IN PRODUCTION?
 if(process.env.NODE_ENV === 'production'){
 
     app.use(express.static('client/build'))
@@ -25,5 +25,6 @@ if(process.env.NODE_ENV === 'production'){
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')) //
     })
 }
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
